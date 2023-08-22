@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<h1 class="text-center">Calculadora IMC</h1>
+<body>
+<form action="/" method="post">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="input-group mb-3">
+                <input name="altura" type="number" class="form-control" placeholder="altura" aria-label="altura"
+                       aria-describedby="altura">
+                <span class="input-group-text" id="altura">altura(cm)</span>
+            </div>
+
+            <div class="input-group mb-3">
+                <input name="peso" type="number" class="form-control" placeholder="peso" aria-label="peso"
+                       aria-describedby="peso">
+                <span class="input-group-text" id="peso">peso(kg)</span>
+            </div>
+            <div class="col-sm-12 text-center mb-3">
+                <button type="submit" class="btn btn-primary">Calcular</button>
+            </div>
+            <div class="col-sm-6 text-center" th:if="${numeroArrendondado}">
+                <h4 class="text-center">Seu IMC é</h4>
+                <h1 class="text-center" th:text="${numeroArrendondado}"></h1>
+                <h1 class="text-center" th:text="${MensagemRetorno}"></h1>
+            </div>
+            <div class="col-sm-6 text-center" th:if="${numeroArrendondado}">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">Faixa</th>
+                        <th scope="col">Categoria</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Menor que 18,5</td>
+                        <td>Abaixo do peso</td>
+                    </tr>
+                    <tr>
+                        <td>Entre 18,5 e 24,9</td>
+                        <td>Peso Ideal</td>
+                    </tr>
+                    <tr>
+                        <td>Entre 24,9 e 30</td>
+                        <td>Sobrepeso</td>
+                    </tr>
+                    <tr>
+                        <td>Entre 30 e 34,9</td>
+                        <td>Obesidade Grau 1</td>
+                    </tr>
+                    <tr>
+                        <td>Entre 35 e 40</td>
+                        <td>Obesidade Grau 2</td>
+                    </tr>
+                    <tr>
+                        <td>Acima de 40</td>
+                        <td>Obesidade Grau 3</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</form>
+</body>
+</html>
